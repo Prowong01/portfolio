@@ -1,9 +1,6 @@
 "use client";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Image from "next/image";
-import { Card, CardHeader } from "./ui/card";
-import { Car, Link2Icon } from "lucide-react";
 
 // import swiper react components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +14,11 @@ import { Pagination } from "swiper/modules";
 
 // components
 import ProjectCard from "./ProjectCard";
-import Badge from "./ui/Badge";
+import Image from "next/image";
+import { Card, CardHeader } from "./ui/card";
+import { GitHubIcon, Link2Icon } from "lucide-react";
+import Badge from "./Badge";
+import { RiGithubFill } from "react-icons/ri";
 
 const projectData = [
   {
@@ -102,7 +103,7 @@ const Work = () => {
         <div className="max-w-[400px] mx-auto xl:mx-0 text-center xl:text-left mb-12 xl:h-[400px] flex flex-col justify-center items-center xl:items-start">
           <h2 className="section-title mb-4">Latest Project</h2>
           <p className="subtitle mb-8">Lorem aadsad asd adadad dad</p>
-          <Link href="/proojects">
+          <Link href="/projects">
             <Button>All projects</Button>
           </Link>
         </div>
@@ -117,37 +118,60 @@ const Work = () => {
               },
             }}
             spaceBetween={30}
-            modules={Pagination}
+            modules={[Pagination]}
             pagination={{ clickable: true }}
           >
-            {projectData.slice(0, 4).map((project, index) => {
+            {/* {projectData.slice(0, 4).map((project, index) => {
               <SwiperSlide key={index}>
-                <Card>
-                  <CardHeader>
-                    {/* image */}
-                    <div className="relative w-full">
-                      <Image
-                        className="absolute bottom-0 shadow-2xl"
-                        src={project.image}
-                        width={247}
-                        height={250}
-                        alt=""
-                        priority
-                      />
-                    </div>
-                  </CardHeader>
-                  <div className="h-full px-8 py-6">
-                    <Badge className="uppercase text-sm font-medium mb-2 absolute top-4 left-5">
-                      {project.category}
-                    </Badge>
-                    <h4 className="h4 mb-1">{project.name}</h4>
-                    <p className="text-muted-foreground text-lg">
-                      {project.description}
-                    </p>
-                  </div>
-                </Card>
+                <ProjectCard project={project} />
               </SwiperSlide>;
-            })}
+            })} */}
+            <SwiperSlide>
+              <Card className="group overflow-hidden relative">
+                <CardHeader className="p-0">
+                  {/* image */}
+                  <div className="relative w-full h-[300px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+                    <Image
+                      className="absolute bottom-0 shadow-2xl"
+                      src={"/work/3.png"}
+                      width={247}
+                      height={250}
+                      alt=""
+                      priority
+                    />
+                    {/* btn links */}
+                    <div className="flex gap-x-4">
+                      {/* project link */}
+                      <Link
+                        href={"/"}
+                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <Link2Icon className="text-white" />
+                      </Link>
+                      {/* github link */}
+                      <Link
+                        href={"/"}
+                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <RiGithubFill className="text-white" />
+                      </Link>
+                    </div>
+                  </div>
+                </CardHeader>
+                <div className="h-full px-8 py-6">
+                  <Badge className="uppercase text-sm font-medium mb-2 absolute top-4 left-5">
+                    {"React JS"}
+                  </Badge>
+                  <h4 className="h4 mb-1">{"Project Name"}</h4>
+                  <p className="text-muted-foreground text-lg">
+                    {"Project Description"}
+                  </p>
+                </div>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>Slide 2</SwiperSlide>
+            <SwiperSlide>Slide 3</SwiperSlide>
+            <SwiperSlide>Slide 4</SwiperSlide>
           </Swiper>
         </div>
       </div>

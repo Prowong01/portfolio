@@ -28,7 +28,7 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
                 initial={{ y: "-10%" }}
                 animate={{ y: 0 }}
                 transition={{ type: "tween" }}
-                logoutId="underline"
+                // logoutId="underline"
                 className={`${underlineStyles}`}
               />
             )}
