@@ -71,7 +71,10 @@ const projectData = [
   },
 ];
 
-const uniqueCategories = [...new Set(projectData.map((item) => item.category))];
+const uniqueCategories = [
+  "all projects",
+  ...new Set(projectData.map((item) => item.category)),
+];
 
 const Projects = () => {
   const [categories, setCategories] = useState(uniqueCategories);
@@ -91,7 +94,7 @@ const Projects = () => {
           My Projects
         </h2>
         {/* tabs */}
-        <Tabs defaultValue="category" className="mb-24 xl:mb-48">
+        <Tabs defaultValue="all projects" className="mb-24 xl:mb-48">
           <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[640px] mb-12 mx-auto md:border dark:border-none">
             {categories.map((category, index) => {
               return (

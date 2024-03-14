@@ -15,10 +15,12 @@ const Contact = () => {
             </div>
             <h1 className="h1 max-w-md mb-8">Lets work Together</h1>
             <p className="subtitle max-w-[400px]">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero
-              facere repudiandae hic ut iusto ullam tempora, nobis beatae eaque
-              quia perferendis minus aut excepturi commodi, quae et delectus
-              odit ducimus.
+              I am thrilled to begin my professional journey in web development
+              and contribute my skills and passion to building exceptional web
+              applications. With a solid educational foundation and hands-on
+              experience from personal projects, I am eager to apply my
+              knowledge in a professional setting and continually grow as a
+              developer.
             </p>
           </div>
           {/* illustration */}
