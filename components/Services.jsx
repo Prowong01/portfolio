@@ -11,17 +11,20 @@ const servicesData = [
   {
     icon: <GanttChartSquare size={72} strokeWidth={0.8} />,
     title: "Web Design",
-    description: "descrasdasdasd asda asdada",
+    description:
+      "I place a strong emphasis on user experience (UX) design, ensuring the website is intuitive, easy to navigate, and optimized for conversion.",
   },
   {
     icon: <Blocks size={72} strokeWidth={0.8} />,
     title: "Web Development",
-    description: "descrasdasdasd asda asdada",
+    description:
+      "I expertise in front-end and back-end development, followed by clean and efficient coding to deliver high-performance, secure, and scalable web system.",
   },
   {
     icon: <Gem size={72} strokeWidth={0.8} />,
-    title: "App development",
-    description: "descrasdasdasd asda asdada",
+    title: "Full Stack",
+    description:
+      "My ability is to bridge the gap between design and functionality, creating cohesive and integrated solutions that seamlessly blend form and function",
   },
 ];
 
@@ -30,7 +33,7 @@ const Services = () => {
     <section className="mb-12 xl:mb-36">
       <div className="container mx-auto">
         <h2 className="section-title mb-12 xl:mb-24 text-center mx-auto">
-          My Services
+          What Can I Do
         </h2>
         {/* grid items */}
         <div className="grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-y-24 xl:gap-x-8">
@@ -47,7 +50,7 @@ const Services = () => {
                 </CardHeader>
                 <CardContent className="text-center">
                   <CardTitle className="mb-4">{item.title}</CardTitle>
-                  <CardDescription className="text-lg">
+                  <CardDescription className="text-lg text-justify">
                     {item.description}
                   </CardDescription>
                 </CardContent>
