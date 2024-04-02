@@ -6,67 +6,39 @@ import { TabsContent } from "@radix-ui/react-tabs";
 
 const projectData = [
   {
-    image: "/work/3.png",
+    image: "/work/portfolio.png",
     category: "react js",
-    name: "Nexa Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Portfolio Website",
+    description:
+      "A dynamic portfolio website using ReactJS to showcase personal projects and skills and follow responsive design principles",
+    link: "https://portfolio-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/4.png",
+    image: "/work/Imaginify.png",
     category: "next js",
-    name: "Sol Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Imaginify Website",
+    description:
+      "Developed an Innovative Saas website that leverages the Cloudinary API to provide image editing feature.",
+    link: "https://imaginify-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/2.png",
+    image: "/work/ecommerce-admin.png",
     category: "next js",
-    name: "Eth Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Ecommerce-Dashboard & CMS",
+    description:
+      "Admin dashboard is going to serve as both CMS, Admin and API & able to control multiple vendors / stores through this single CMS",
+    link: "https://ecommerce-admin-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/3.png",
-    category: "react js",
-    name: "Doge Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/4.png",
+    image: "/work/ecommerce-store.png",
     category: "next js",
-    name: "Shiba Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/2.png",
-    category: "next js",
-    name: "AVAX Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/3.png",
-    category: "react js",
-    name: "MNT Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/4.png",
-    category: "next js",
-    name: "Bit Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Ecommerce-Store",
+    description:
+      "An ecommerce store that can search through all categories, products, sizes, colors and checkout by using Stripe",
+    link: "https://ecommerce-store-prowong01s-projects.vercel.app/",
     github: "/",
   },
 ];
@@ -95,7 +67,7 @@ const Projects = () => {
         </h2>
         {/* tabs */}
         <Tabs defaultValue="all projects" className="mb-24 xl:mb-48">
-          <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[640px] mb-12 mx-auto md:border dark:border-none">
+          <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[500px] mb-12 mx-auto md:border dark:border-none">
             {categories.map((category, index) => {
               return (
                 <TabsTrigger

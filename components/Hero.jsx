@@ -31,7 +31,7 @@ const Hero = () => {
                   <Send size={18} />
                 </Button>
               </Link>
-              <Link href="/cv/Resume_Eddie.pdf">
+              <Link href="/cv/Resume_Eddie.pdf" target="_blank">
                 <Button variant="secondary" className="gap-x-2">
                   Download CV
                   <Download size={18} />
@@ -47,8 +47,8 @@ const Hero = () => {
             <Badge
               containerStyles="absolute top-[24%] -left-[5rem]"
               icon={<RiBriefcase4Fill />}
-              endCountNum={9}
-              badgeText="Months of Experience"
+              endCountNum={1}
+              badgeText="Year of Experience"
             />
             {/* badge 2 */}
             <Badge

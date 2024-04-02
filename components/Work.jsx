@@ -22,75 +22,39 @@ import { RiGithubFill } from "react-icons/ri";
 
 const projectData = [
   {
-    image: "/work/3.png",
+    image: "/work/portfolio.png",
     category: "react js",
-    name: "Nexa Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Portfolio Website",
+    description:
+      "A dynamic portfolio website using ReactJS to showcase personal projects and skills and follow responsive design principles",
+    link: "https://portfolio-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/4.png",
+    image: "/work/Imaginify.png",
     category: "next js",
-    name: "Sol Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Imaginify Website",
+    description:
+      "Developed an Innovative Saas website that leverages the Cloudinary API to provide image editing feature.",
+    link: "https://imaginify-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/2.png",
+    image: "/work/ecommerce-admin.png",
     category: "next js",
-    name: "Eth Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Ecommerce-Dashboard & CMS",
+    description:
+      "Admin dashboard is going to serve as both CMS, Admin and API & able to control multiple vendors / stores through this single CMS",
+    link: "https://ecommerce-admin-prowong01s-projects.vercel.app/",
     github: "/",
   },
   {
-    image: "/work/3.png",
-    category: "react js",
-    name: "Nexa Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/4.png",
+    image: "/work/ecommerce-store.png",
     category: "next js",
-    name: "Sol Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/2.png",
-    category: "next js",
-    name: "Eth Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/3.png",
-    category: "react js",
-    name: "Nexa Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/4.png",
-    category: "next js",
-    name: "Sol Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
-    github: "/",
-  },
-  {
-    image: "/work/2.png",
-    category: "next js",
-    name: "Eth Website",
-    description: "Lasdasdasda asd ada da da",
-    link: "/",
+    name: "Ecommerce-Store",
+    description:
+      "An ecommerce store that can search through all categories, products, sizes, colors and checkout by using Stripe",
+    link: "https://ecommerce-store-prowong01s-projects.vercel.app/",
     github: "/",
   },
 ];
@@ -130,12 +94,12 @@ const Work = () => {
               <Card className="group overflow-hidden relative">
                 <CardHeader className="p-0">
                   {/* image */}
-                  <div className="relative w-full h-[300px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+                  <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
                     <Image
                       className="absolute bottom-0 shadow-2xl"
-                      src={"/work/3.png"}
+                      src={"/work/portfolio.png"}
                       width={247}
-                      height={250}
+                      height={150}
                       alt=""
                       priority
                     />
@@ -143,35 +107,137 @@ const Work = () => {
                     <div className="flex gap-x-4">
                       {/* project link */}
                       <Link
-                        href={"/"}
+                        href={
+                          "https://portfolio-prowong01s-projects.vercel.app/"
+                        }
                         className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
                       >
                         <Link2Icon className="text-white" />
-                      </Link>
-                      {/* github link */}
-                      <Link
-                        href={"/"}
-                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
-                      >
-                        <RiGithubFill className="text-white" />
                       </Link>
                     </div>
                   </div>
                 </CardHeader>
                 <div className="h-full px-8 py-6">
-                  <Badge className="uppercase text-sm font-medium mb-2 absolute top-4 left-5">
-                    {"React JS"}
-                  </Badge>
-                  <h4 className="h4 mb-1">{"Project Name"}</h4>
+                  <h4 className="h4 mb-1">{"Portfolio Website"}</h4>
                   <p className="text-muted-foreground text-lg">
-                    {"Project Description"}
+                    {
+                      "A dynamic portfolio website using ReactJS to showcase personal projects and skills and follow responsive design principles"
+                    }
                   </p>
                 </div>
               </Card>
             </SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
+            <SwiperSlide>
+              <Card className="group overflow-hidden relative">
+                <CardHeader className="p-0">
+                  {/* image */}
+                  <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+                    <Image
+                      className="absolute bottom-0 shadow-2xl"
+                      src={"/work/Imaginify.png"}
+                      width={247}
+                      height={150}
+                      alt=""
+                      priority
+                    />
+                    {/* btn links */}
+                    <div className="flex gap-x-4">
+                      {/* project link */}
+                      <Link
+                        href={
+                          "https://imaginify-prowong01s-projects.vercel.app/"
+                        }
+                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <Link2Icon className="text-white" />
+                      </Link>
+                    </div>
+                  </div>
+                </CardHeader>
+                <div className="h-full px-8 py-6">
+                  <h4 className="h4 mb-1">{"Imaginify Website"}</h4>
+                  <p className="text-muted-foreground text-lg">
+                    {
+                      "Developed an Innovative Saas website that leverages the Cloudinary API to provide image editing feature."
+                    }
+                  </p>
+                </div>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card className="group overflow-hidden relative">
+                <CardHeader className="p-0">
+                  {/* image */}
+                  <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+                    <Image
+                      className="absolute bottom-0 shadow-2xl"
+                      src={"/work/ecommerce-admin.png"}
+                      width={247}
+                      height={150}
+                      alt=""
+                      priority
+                    />
+                    {/* btn links */}
+                    <div className="flex gap-x-4">
+                      {/* project link */}
+                      <Link
+                        href={
+                          "https://ecommerce-admin-prowong01s-projects.vercel.app/"
+                        }
+                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <Link2Icon className="text-white" />
+                      </Link>
+                    </div>
+                  </div>
+                </CardHeader>
+                <div className="h-full px-8 py-6">
+                  <h4 className="h4 mb-1">{"Ecommerce-Dashboard & CMS"}</h4>
+                  <p className="text-muted-foreground text-lg">
+                    {
+                      "Admin dashboard is going to serve as both CMS, Admin and API & able to control multiple vendors / stores through this single CMS"
+                    }
+                  </p>
+                </div>
+              </Card>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card className="group overflow-hidden relative">
+                <CardHeader className="p-0">
+                  {/* image */}
+                  <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
+                    <Image
+                      className="absolute bottom-0 shadow-2xl"
+                      src={"/work/ecommerce-store.png"}
+                      width={247}
+                      height={150}
+                      alt=""
+                      priority
+                    />
+                    {/* btn links */}
+                    <div className="flex gap-x-4">
+                      {/* project link */}
+                      <Link
+                        href={
+                          "https://ecommerce-store-prowong01s-projects.vercel.app/"
+                        }
+                        className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
+                      >
+                        <Link2Icon className="text-white" />
+                      </Link>
+                    </div>
+                  </div>
+                </CardHeader>
+                <div className="h-full px-8 py-6">
+                  <h4 className="h4 mb-1">{"Ecommerce-Store"}</h4>
+                  <p className="text-muted-foreground text-lg">
+                    {
+                      "An ecommerce store that can search through all categories, products, sizes, colors and checkout by using Stripe"
+                    }
+                  </p>
+                </div>
+              </Card>
+            </SwiperSlide>
           </Swiper>
         </div>
       </div>
