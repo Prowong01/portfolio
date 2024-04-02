@@ -15,7 +15,7 @@ const projectData = [
     github: "/",
   },
   {
-    image: "/work/Imaginify.png",
+    image: "/work/imaginify.png",
     category: "next js",
     name: "Imaginify Website",
     description:

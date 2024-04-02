@@ -13,51 +13,9 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 // components
-import ProjectCard from "./ProjectCard";
 import Image from "next/image";
 import { Card, CardHeader } from "./ui/card";
 import { GitHubIcon, Link2Icon } from "lucide-react";
-import Badge from "./Badge";
-import { RiGithubFill } from "react-icons/ri";
-
-const projectData = [
-  {
-    image: "/work/portfolio.png",
-    category: "react js",
-    name: "Portfolio Website",
-    description:
-      "A dynamic portfolio website using ReactJS to showcase personal projects and skills and follow responsive design principles",
-    link: "https://portfolio-prowong01s-projects.vercel.app/",
-    github: "/",
-  },
-  {
-    image: "/work/Imaginify.png",
-    category: "next js",
-    name: "Imaginify Website",
-    description:
-      "Developed an Innovative Saas website that leverages the Cloudinary API to provide image editing feature.",
-    link: "https://imaginify-prowong01s-projects.vercel.app/",
-    github: "/",
-  },
-  {
-    image: "/work/ecommerce-admin.png",
-    category: "next js",
-    name: "Ecommerce-Dashboard & CMS",
-    description:
-      "Admin dashboard is going to serve as both CMS, Admin and API & able to control multiple vendors / stores through this single CMS",
-    link: "https://ecommerce-admin-prowong01s-projects.vercel.app/",
-    github: "/",
-  },
-  {
-    image: "/work/ecommerce-store.png",
-    category: "next js",
-    name: "Ecommerce-Store",
-    description:
-      "An ecommerce store that can search through all categories, products, sizes, colors and checkout by using Stripe",
-    link: "https://ecommerce-store-prowong01s-projects.vercel.app/",
-    github: "/",
-  },
-];
 
 const Work = () => {
   return (
@@ -134,7 +92,7 @@ const Work = () => {
                   <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
                     <Image
                       className="absolute bottom-0 shadow-2xl"
-                      src={"/work/Imaginify.png"}
+                      src={"/work/imaginify.png"}
                       width={247}
                       height={150}
                       alt=""
