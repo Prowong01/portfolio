@@ -78,16 +78,19 @@ const skillData = [
     title: "skills",
     data: [
       {
-        name: "HTML, CSS",
+        name: "Frontend: HTML, Tailwind CSS, Javascript, ReactJS",
       },
       {
-        name: "Front-end Development",
+        name: "Backend: Python, Django ",
       },
       {
-        name: "Javascript, PHP",
+        name: "Fullstack: NextJS",
       },
       {
-        name: "Back-end Development",
+        name: "Database & Storage: MySQL, MongoDB",
+      },
+      {
+        name: "DevOps & Cloud : Git, AWS",
       },
     ],
   },
@@ -95,13 +98,13 @@ const skillData = [
     title: "tools",
     data: [
       {
-        imgPath: "/about/vscode.svg",
+        imgPath: "/about/vscode.png",
       },
       {
-        imgPath: "/about/figma.svg",
+        imgPath: "/about/powerbi.jfif",
       },
       {
-        imgPath: "/about/notion.svg",
+        imgPath: "/about/postman.png",
       },
     ],
   },
@@ -123,7 +126,7 @@ const About = () => {
           <div className="hidden xl:flex flex-1 relative">
             <DevImg
               containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
-              imgSrc="/about/developer.png"
+              imgSrc="/about/eddie.png"
             />
           </div>
 
@@ -279,7 +282,7 @@ const About = () => {
                             const { name } = item;
                             return (
                               <div
-                                className="w-2/4 text-center x:text-left mx-auto xl:mx-0 "
+                                className="w-2/4 text-left x:text-left mx-auto xl:mx-0 "
                                 key={index}
                               >
                                 <div className="font-medium">{name}</div>
