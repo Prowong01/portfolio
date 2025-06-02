@@ -1,43 +1,67 @@
-import Link from "next/link";
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardHeader } from "./ui/card";
-import { GitHubIcon, Link2Icon } from "lucide-react";
-import Badge from "./Badge";
+import { Github, Link2Icon } from "lucide-react";
 
 const ProjectCard = ({ project }) => {
   return (
-    <Card className="group overflow-hidden relative">
-      <CardHeader className="p-0">
-        {/* image */}
-        <div className="relative w-full h-[150px] flex items-center justify-center bg-tertiary dark:bg-secondary/40 xl:bg-wkr_project_bg_light xl:dark:bg-work_project_bg_dark xl:bg-[110%] xl:bg-no-repeat overflow-hidden">
-          <Image
-            className="absolute bottom-0 shadow-2xl"
-            src={project.image}
-            width={247}
-            height={250}
-            alt=""
-            priority
-          />
-          {/* btn links */}
-          <div>
-            <Link
-              href={project.link}
-              target="_blank"
-              className="bg-secondary w-[54px] h-[54px] rounded-full flex justify-center items-center scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200"
-            >
-              <Link2Icon className="text-white" />
-            </Link>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+      className="h-full"
+    >
+      <Card className="group overflow-hidden relative h-full border border-border/40 hover:border-primary/30 transition-all duration-300 hover:shadow-md rounded-xl">
+        <div className="flex flex-col h-full">
+          {/* Project image */}
+          <div className="relative h-[180px] overflow-hidden rounded-t-lg">
+            <Image
+              className="object-cover w-full h-full"
+              src={project.image}
+              width={600}
+              height={300}
+              alt={project.title}
+              priority
+            />
+
+            {/* Category badge */}
+            <div className="absolute top-3 left-3">
+              <span className="capitalize text-xs font-semibold py-1 px-3 rounded-full bg-white/90 text-primary text-opacity-90 shadow-sm">
+                {project.category}
+              </span>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-5 flex-grow flex flex-col">
+            <h3 className="text-xl font-medium mb-2 text-foreground/90">
+              {project.title}
+            </h3>
+            <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+              {project.description}
+            </p>
+
+            {/* Tech stack tags */}
+            {project.technologies && (
+              <div className="flex flex-wrap gap-1.5 mt-auto">
+                {project.technologies.map((tech, index) => (
+                  <span
+                    key={index}
+                    className="text-xs py-1 px-2.5 bg-accent/50 rounded-full text-foreground/80"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </div>
-      </CardHeader>
-      <div className="h-full px-8 py-6">
-        {/* <Badge className="uppercase text-sm font-medium mb-2 absolute top-4 left-5">
-          {project.category}
-        </Badge> */}
-        <h4 className="h4 mb-1">{project.name}</h4>
-        <p className="text-muted-foreground text-lg">{project.description}</p>
-      </div>
-    </Card>
+      </Card>
+    </motion.div>
   );
 };
 

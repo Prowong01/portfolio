@@ -1,43 +1,18 @@
+"use client";
 import DevImg from "./DevImg";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import {
   User2,
   MailIcon,
-  PhoneCall,
+  PhoneIcon,
   GraduationCap,
   Calendar,
   Briefcase,
-  Home,
+  HomeIcon,
 } from "lucide-react";
-
-const infoData = [
-  {
-    icon: <User2 size={20} />,
-    text: "Eddie Wong",
-  },
-  {
-    icon: <PhoneCall size={20} />,
-    text: "+60 111-1471631",
-  },
-  {
-    icon: <MailIcon size={20} />,
-    text: "jeddiewong@yahoo.com",
-  },
-  {
-    icon: <Calendar size={20} />,
-    text: " 15 May, 2001",
-  },
-  {
-    icon: <GraduationCap size={20} />,
-    text: "Degree on Data Science",
-  },
-  {
-    icon: <Home size={20} />,
-    text: "Selangor / KL",
-  },
-];
 
 const qualificationData = [
   {
@@ -69,259 +44,304 @@ const qualificationData = [
         role: "Intern",
         years: "September 2023 - June 2024",
       },
+      {
+        company: "Numen Cyber Technology",
+        role: "Web Developer",
+        years: "July 2024 - March 2025",
+      },
+      {
+        company: "Beyondosoft (Malaysia)",
+        role: "Web Developer",
+        years: "March 2025 - Present",
+      },
     ],
   },
 ];
 
-const skillData = [
+// 技能分类数据
+const skillCategories = [
   {
-    title: "skills",
-    data: [
+    id: "frontend",
+    title: "Front-End",
+    skills: [
       {
-        name: "Frontend: HTML, Tailwind CSS, Javascript, ReactJS",
+        name: "React.js",
+        icon: "/skills/react.svg",
       },
       {
-        name: "Backend: Python, Django ",
+        name: "Next.js",
+        icon: "/skills/next.svg",
       },
       {
-        name: "Fullstack: NextJS",
+        name: "Vue.js",
+        icon: "/skills/vue.svg",
       },
       {
-        name: "Database & Storage: MySQL, MongoDB",
+        name: "React Native",
+        icon: "/skills/react-native.svg",
       },
       {
-        name: "DevOps & Cloud : Git, AWS",
+        name: "Tailwind CSS",
+        icon: "/skills/tailwindcss.svg",
       },
     ],
   },
   {
-    title: "tools",
-    data: [
+    id: "backend",
+    title: "Back-End",
+    skills: [
       {
-        imgPath: "/about/vscode.png",
+        name: "Node.js",
+        icon: "/skills/nodejs.svg",
       },
       {
-        imgPath: "/about/react.png",
+        name: "Express",
+        icon: "/skills/express.svg",
       },
       {
-        imgPath: "/about/nextjs.png",
+        name: "Python",
+        icon: "/skills/python.svg",
       },
       {
-        imgPath: "/about/postman.png",
+        name: "Django",
+        icon: "/skills/django.svg",
+      },
+    ],
+  },
+  {
+    id: "tools",
+    title: "Databases & Tools",
+    skills: [
+      {
+        name: "Git",
+        icon: "/skills/git.svg",
+      },
+      {
+        name: "Figma",
+        icon: "/skills/figma.svg",
+      },
+      {
+        name: "AWS",
+        icon: "/skills/aws.svg",
+      },
+      {
+        name: "Docker",
+        icon: "/skills/docker.svg",
+      },
+      {
+        name: "Postman",
+        icon: "/skills/postman.svg",
+      },
+      {
+        name: "Axios",
+        icon: "/skills/axios.png",
       },
     ],
   },
 ];
+
+// 技能图标组件
+const SkillIcon = ({ skill }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="flex flex-col items-center gap-2 md:gap-3"
+    >
+      <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center p-3 md:p-4 hover:shadow-xl hover:scale-110 transition-all duration-300 border border-border/10">
+        <div className="relative w-10 h-10 md:w-12 md:h-12">
+          <Image
+            src={skill.icon}
+            fill
+            alt={skill.name}
+            className="object-contain"
+            sizes="(max-width: 768px) 40px, 48px"
+          />
+        </div>
+      </div>
+      <span className="text-xs md:text-sm font-medium text-center">
+        {skill.name}
+      </span>
+    </motion.div>
+  );
+};
 
 const About = () => {
   const getData = (arr, title) => {
     return arr.find((item) => item.title === title);
   };
 
-  return (
-    <section className="xl:h-[860px] pb-12 xl:py-24">
-      <div className="container mx-auto">
-        <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
-          About me
-        </h2>
-        <div className="flex flex-col xl:flex-row">
-          {/* image */}
-          <div className="hidden xl:flex flex-1 relative">
-            <DevImg
-              containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
-              imgSrc="/about/test.png"
-            />
-          </div>
+  const fadeInAnimation = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 0.5 },
+  };
 
+  return (
+    <section>
+      <div className="container mx-auto my-4">
+        <motion.h2
+          className="section-title mb-6 md:mb-8 xl:mb-16 text-center mx-auto"
+          {...fadeInAnimation}
+          transition={{ ...fadeInAnimation.transition, delay: 0.1 }}
+        >
+          About me
+        </motion.h2>
+        <div className="flex justify-center">
           {/* tabs */}
-          <div className="flex-1">
-            <Tabs defaultValue="personal">
-              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none">
-                {/* personal */}
-                <TabsTrigger value="personal">Personal Info</TabsTrigger>
-                {/* qualifications */}
-                <TabsTrigger value="qualifications">Qualifications</TabsTrigger>
-                {/* skills */}
-                <TabsTrigger value="skills">Skills</TabsTrigger>
-              </TabsList>
+          <div className="w-full max-w-4xl px-4">
+            <Tabs defaultValue="skills">
+              <motion.div
+                className="flex justify-center gap-4 mb-8 md:mb-12"
+                {...fadeInAnimation}
+                transition={{ ...fadeInAnimation.transition, delay: 0.2 }}
+              >
+                <TabsList className="grid grid-cols-2 w-full max-w-[280px] md:max-w-[320px] h-[48px]">
+                  <TabsTrigger value="skills">Skills</TabsTrigger>
+                  <TabsTrigger value="qualifications">
+                    Qualifications
+                  </TabsTrigger>
+                </TabsList>
+              </motion.div>
 
               {/* tabs content */}
-              <div className="text-lg mt-12 xl:mt-8">
-                {/* personal */}
-                <TabsContent value="personal">
-                  <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-4">
-                      Clean code always looks like it was written by someone who
-                      cares.
-                    </h3>
-                    <p className="subtitle max-w-xl max-auto xl:mx-0">
-                      I specialize in crafting intuitive websites with
-                      cutting-edge technology,delivery dynamic and engaging user
-                      experience.
+              <div className="text-base md:text-lg mt-6 xl:mt-6">
+                {/* skills */}
+                <TabsContent value="skills">
+                  <motion.div
+                    {...fadeInAnimation}
+                    transition={{ ...fadeInAnimation.transition, delay: 0.4 }}
+                  >
+                    <h3 className="h3 mb-4 md:mb-6 text-center">My Skills</h3>
+                    <p className="subtitle text-center max-w-[600px] mx-auto mb-6 md:mb-10">
+                      I work with various technologies to build modern and
+                      scalable applications
                     </p>
-                    {/* icons */}
-                    <div className="grid xl:grid-cols-2 gap-4 mb-12">
-                      {infoData.map((item, index) => {
-                        return (
-                          <div
-                            className="flex items-center gap-x-4 mx-auto xl:mx-0"
-                            key={index}
-                          >
-                            <div className="text-primary">{item.icon}</div>
-                            <div>{item.text}</div>
+
+                    <Tabs defaultValue="frontend" className="mt-6 md:mt-8">
+                      <div className="overflow-x-auto">
+                        <TabsList className="grid grid-cols-3 w-full max-w-[520px] h-[40px] md:h-[48px] mx-auto mb-6 md:mb-10 text-xs md:text-sm gap-2 md:gap-3 min-w-[400px]">
+                          <TabsTrigger value="frontend">Front-End</TabsTrigger>
+                          <TabsTrigger value="backend">Back-End</TabsTrigger>
+                          <TabsTrigger value="tools">
+                            Databases & Tools
+                          </TabsTrigger>
+                        </TabsList>
+                      </div>
+
+                      {skillCategories.map((category) => (
+                        <TabsContent key={category.id} value={category.id}>
+                          <div className="bg-white/5 rounded-2xl p-6 md:p-8 shadow-md border border-border/20 hover:border-primary/20 transition-all duration-300">
+                            <h4 className="text-xl md:text-2xl font-semibold mb-6 md:mb-8 text-center text-primary/90">
+                              {category.title}
+                            </h4>
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-8 justify-items-center">
+                              {category.skills.map((skill, index) => (
+                                <SkillIcon key={index} skill={skill} />
+                              ))}
+                            </div>
                           </div>
-                        );
-                      })}
-                    </div>
-                    {/* languages */}
-                    <div className="flex flex-col gap-y-2">
-                      <div className="text-primary">Language Skill</div>
-                      <div className="border-b border-border"></div>
-                      <div>English, Chinese, Malay</div>
-                    </div>
-                  </div>
+                        </TabsContent>
+                      ))}
+                    </Tabs>
+                  </motion.div>
                 </TabsContent>
 
                 {/* qualifications */}
                 <TabsContent value="qualifications">
-                  <div>
-                    <h3 className="h3 mb-8 text-center xl:text-left">
-                      {" "}
-                      My Awesome Journey
+                  <motion.div
+                    {...fadeInAnimation}
+                    transition={{ ...fadeInAnimation.transition, delay: 0.4 }}
+                  >
+                    <h3 className="h3 mb-4 text-center">
+                      My Experience & Education
                     </h3>
-                    {/* experience & education wrapper*/}
-                    <div className="grid  gap-y-6">
-                      {/* experience */}
-                      <div className="flex flex-col gap-y-6">
-                        <div className="flex gap-x-4 items-center text-[22px] text-primary">
-                          <Briefcase />
-                          <h4 className="capitalize font-medium">
-                            {getData(qualificationData, "experience").title}
-                          </h4>
-                        </div>
-                        {/* list */}
-                        <div className="flex fle-col gap-y-8">
-                          {getData(qualificationData, "experience").data.map(
-                            (item, index) => {
-                              const { company, role, years } = item;
-                              return (
-                                <div
-                                  className="flex gap-x-8 group "
-                                  key={index}
-                                >
-                                  <div className="h-[84px] w-[1px] bg-border relative ml-2">
-                                    <div className="w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500"></div>
-                                  </div>
-                                  <div>
-                                    <div className="font-semibold text-xl leading-none mb-2">
-                                      {company}
-                                    </div>
-                                    <div className="text-lg leading-none text-muted-foreground mb-4">
-                                      {role}
-                                    </div>
-                                    <div className="text-base font-medium">
-                                      {years}
-                                    </div>
-                                  </div>
-                                </div>
-                              );
-                            }
-                          )}
-                        </div>
-                      </div>
-                      {/* education */}
-                      <div className="flex flex-col gap-y-6">
-                        <div className="flex gap-x-4 items-center text-[22px] text-primary">
-                          <GraduationCap size={28} />
-                          <h4 className="capitalize font-medium">
-                            {getData(qualificationData, "education").title}
-                          </h4>
-                        </div>
-                        {/* list */}
-                        <div className="flex fle-col gap-y-8">
+                    <p className="subtitle text-center max-w-[500px] mx-auto mb-8">
+                      My journey through education and professional experience.
+                    </p>
+
+                    <Tabs defaultValue="education" className="mt-8">
+                      <TabsList className="grid grid-cols-2 w-full h-[48px] mx-auto mb-8">
+                        <TabsTrigger value="education">Education</TabsTrigger>
+                        <TabsTrigger value="experience">Experience</TabsTrigger>
+                      </TabsList>
+
+                      {/* Education Tab */}
+                      <TabsContent value="education">
+                        <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px lg:before:mx-auto lg:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:via-border before:from-transparent before:to-transparent">
+                          {/* 使用qualificationData来渲染教育信息 */}
                           {getData(qualificationData, "education").data.map(
-                            (item, index) => {
-                              const { university, result, standard } = item;
-                              return (
-                                <div
-                                  className="flex gap-x-8 group "
-                                  key={index}
-                                >
-                                  <div className="h-[84px] w-[1px] bg-border relative ml-2">
-                                    <div className="w-[11px] h-[11px] rounded-full bg-primary absolute -left-[-3px] group-hover:translate-y-[84px] transition-all duration-500"></div>
+                            (item, index) => (
+                              <div
+                                key={index}
+                                className="relative flex items-center justify-between lg:justify-normal lg:odd:flex-row-reverse group"
+                              >
+                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-background border border-border shadow shrink-0 lg:order-1 lg:group-odd:-translate-x-1/2 lg:group-even:translate-x-1/2 z-10">
+                                  <GraduationCap className="w-5 h-5 text-primary" />
+                                </div>
+
+                                <div className="w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 rounded-lg bg-background shadow-md border border-border">
+                                  <div className="flex items-center justify-between space-x-2 mb-1">
+                                    <div className="font-bold text-primary">
+                                      {item.university}
+                                    </div>
+                                    <time className="font-caveat font-medium text-xs text-muted-foreground">
+                                      {/* 这里可以添加年份，如果数据中有的话 */}
+                                    </time>
                                   </div>
-                                  <div>
-                                    <div className="font-semibold text-xl leading-none mb-2">
-                                      {university}
-                                    </div>
-                                    <div className="text-lg leading-none text-muted-foreground mb-4">
-                                      {standard}
-                                    </div>
-                                    <div className="text-base font-medium">
-                                      {result}
-                                    </div>
+                                  <div className="text-sm font-medium mb-1">
+                                    {item.standard}
+                                  </div>
+                                  <div className="text-xs text-muted-foreground">
+                                    {item.result}
                                   </div>
                                 </div>
-                              );
-                            }
+                              </div>
+                            )
                           )}
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </TabsContent>
+                      </TabsContent>
 
-                {/* skills */}
-                <TabsContent value="skills">
-                  <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-8">What I Use Everyday</h3>
-                    {/* skills */}
-                    <div className="mb-16">
-                      <h4 className="text-xl font-semibold mb-2">Skills</h4>
-                      <div className="border-b border-border mb-4"></div>
-                      {/* skill list */}
-                      <div>
-                        {getData(skillData, "skills").data.map(
-                          (item, index) => {
-                            const { name } = item;
-                            return (
+                      {/* Experience Tab */}
+                      <TabsContent value="experience">
+                        <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px lg:before:mx-auto lg:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:via-border before:from-transparent before:to-transparent">
+                          {/* 使用qualificationData来渲染经验信息 */}
+                          {getData(qualificationData, "experience").data.map(
+                            (item, index) => (
                               <div
-                                className="w-2/4 text-left x:text-left mx-auto xl:mx-0 "
                                 key={index}
+                                className="relative flex items-center justify-between lg:justify-normal lg:odd:flex-row-reverse group"
                               >
-                                <div className="font-medium">{name}</div>
-                              </div>
-                            );
-                          }
-                        )}
-                      </div>
-                    </div>
+                                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-background border border-border shadow shrink-0 lg:order-1 lg:group-odd:-translate-x-1/2 lg:group-even:translate-x-1/2 z-10">
+                                  <Briefcase className="w-5 h-5 text-primary" />
+                                </div>
 
-                    {/* tools */}
-                    <div>
-                      <h4 className="text-xl font-semibold mb-2 xl:text-left">
-                        Tools
-                      </h4>
-                      <div className="border-b border-border mb-4"></div>
-                      {/* tool list */}
-                      <div className="flex gap-x-8 justify-center xl:justify-start">
-                        {getData(skillData, "tools").data.map((item, index) => {
-                          const { imgPath } = item;
-                          return (
-                            <div key={index}>
-                              <Image
-                                src={imgPath}
-                                width={48}
-                                height={48}
-                                alt=""
-                                priority
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
+                                <div className="w-[calc(100%-4rem)] lg:w-[calc(50%-2.5rem)] p-4 rounded-lg bg-background shadow-md border border-border">
+                                  <div className="flex items-center justify-between space-x-2 mb-1">
+                                    <div className="font-bold text-primary">
+                                      {item.company}
+                                    </div>
+                                    <time className="font-caveat font-medium text-xs text-muted-foreground">
+                                      {item.years}
+                                    </time>
+                                  </div>
+                                  <div className="text-sm font-medium mb-1">
+                                    {item.role}
+                                  </div>
+                                  <div className="text-xs text-muted-foreground">
+                                    {/* 这里可以添加描述，如果数据中有的话 */}
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </TabsContent>
+                    </Tabs>
+                  </motion.div>
                 </TabsContent>
               </div>
             </Tabs>
