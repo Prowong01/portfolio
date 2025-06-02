@@ -106,9 +106,9 @@ const Hero = () => {
           <div className="hidden xl:flex relative">
             {/* badge 1 */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 1.2 }}
+              className="z-10"
             >
               <Badge
                 containerStyles="absolute top-[24%] -left-[5rem]"
@@ -120,14 +120,14 @@ const Hero = () => {
 
             {/* badge 2 */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 1.4 }}
+              className="z-10"
             >
               <Badge
                 containerStyles="absolute top-[55%] -right-8"
                 icon={<RiTodoFill />}
-                endCountNum={3}
+                endCountNum={8}
                 badgeText="Finished Projects"
               />
             </motion.div>
