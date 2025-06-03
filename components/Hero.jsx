@@ -42,7 +42,7 @@ const Hero = () => {
               animate={fadeIn.animate}
               transition={{ ...fadeIn.transition, delay: 0.2 }}
             >
-              Developer
+              Web Developer
             </motion.div>
             <motion.h1
               className="h1 mb-4"
@@ -58,8 +58,8 @@ const Hero = () => {
               animate={fadeIn.animate}
               transition={{ ...fadeIn.transition, delay: 0.6 }}
             >
-              Motivated and adaptable fresh graduate with a Bachelor's degree in
-              Data Engineering from Universiti Teknologi Malaysia
+              Proficient Full-Stack Typescript Developer with 1+ years of
+              experience specializing in modern web frameworks.
             </motion.p>
 
             {/* buttons */}

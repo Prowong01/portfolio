@@ -181,7 +181,7 @@ const About = () => {
   };
 
   return (
-    <section>
+    <section className="mb-12 xl:mb-36 mt-8">
       <div className="container mx-auto my-4">
         <motion.h2
           className="section-title mb-6 md:mb-8 xl:mb-16 text-center mx-auto"
